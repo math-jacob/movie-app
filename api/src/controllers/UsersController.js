@@ -20,7 +20,7 @@ class UserController {
       password: hashedPassword
     })
 
-    return response.json()
+    return response.status(201).json()
   }
 }
 
