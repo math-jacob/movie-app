@@ -1,6 +1,8 @@
-const Router = require('express')
+const { Router } = require('express')
 
 const usersRouter = require('./user.routes')
 
 const routes = Router()
-routes.post('/user', usersRouter)
+routes.post('/users', usersRouter)
+
+module.exports = routes
