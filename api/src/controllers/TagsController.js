@@ -1,5 +1,4 @@
 const knex = require('../database/knex')
-const AppError = require('../utils/AppError')
 
 class TagsController {
   async index(request, response) {
@@ -8,6 +7,14 @@ class TagsController {
     const tags = await knex('tags').where({ user_id })
 
     return response.json(tags)
+  }
+
+  async delete(request, response) {
+    const { id } = request.params
+
+    await knex('tags').where({ id }).delete()
+
+    return response.json()
   }
 }
 
