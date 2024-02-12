@@ -18,10 +18,7 @@ export const Container = styled.header`
   }
 `
 
-export const Profile = styled.button`
-  border: none;
-  background: transparent;
-
+export const Profile = styled.div`
   display: flex;
   align-items: center;
   gap: .8rem;
