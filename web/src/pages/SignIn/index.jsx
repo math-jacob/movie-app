@@ -2,7 +2,6 @@ import { FiMail, FiLock } from "react-icons/fi";
 
 import { Input } from '../../components/Input'
 
-
 import { Container, Form, Background } from './styles'
 import { Button } from "../../components/Button";
 
