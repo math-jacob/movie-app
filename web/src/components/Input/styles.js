@@ -10,6 +10,7 @@ export const Container = styled.div`
   padding: 0 1.6rem;
 
   background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND};
+  color: ${({ theme }) => theme.COLORS.GRAY_100};
 
   border-radius: 10px;
   margin-bottom: .8rem;
