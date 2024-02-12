@@ -10,7 +10,7 @@ export const Container = styled.header`
 
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #3E3B47;
+  border-bottom-color: ${({ theme }) => theme.COLORS.BORDER_STROKE};
 
   > h1 {
     font-size: 2.4rem;

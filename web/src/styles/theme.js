@@ -11,6 +11,8 @@ export default {
     GRAY_100: '#CAC4CF',
     GRAY_200: '#948F99',
 
+    BORDER_STROKE: '#3E3B47',
+
     WHITE: '#F4EDE8',
   }
 }
