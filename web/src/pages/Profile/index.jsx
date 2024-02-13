@@ -2,6 +2,7 @@ import { FiArrowLeft, FiCamera, FiUser, FiMail, FiLock } from 'react-icons/fi'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
+import { ButtonText } from '../../components/ButtonText'
 
 import { Container, Form, Avatar } from './styles'
 
@@ -12,10 +13,7 @@ export function Profile() {
   return (
     <Container>
       <header>
-        <a href="#">
-          <FiArrowLeft />
-          Voltar para o login
-        </a>
+        <ButtonText Icon={FiArrowLeft} title='Voltar'/>
       </header>
 
       <Form>

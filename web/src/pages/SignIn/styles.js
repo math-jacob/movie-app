@@ -36,9 +36,8 @@ export const Form = styled.form`
     font-weight: medium;
   }
 
-  > a {
+  > button + button {
     margin-top: 4.2rem;
-    color: ${({ theme }) => theme.COLORS.PINK_100};
   }
 `
 

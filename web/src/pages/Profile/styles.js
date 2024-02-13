@@ -7,14 +7,6 @@ export const Container = styled.div`
     padding: 6.4rem 14.6rem;
 
     background-color: ${({ theme }) => theme.COLORS.PINK_800};
-
-    a {
-      color: ${({ theme }) => theme.COLORS.PINK_100};
-
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-    }
   }
 `
 
