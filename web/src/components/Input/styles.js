@@ -5,7 +5,6 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
-  gap: 1.6rem;
 
   padding: 0 1.6rem;
 
@@ -19,8 +18,9 @@ export const Container = styled.div`
     width: 100%;
     background: transparent;
     border: none;
-
+    
     height: 5.6rem;
+    padding-inline: 1.6rem;
 
     color: ${({ theme }) => theme.COLORS.WHITE};
 
