@@ -14,8 +14,9 @@ export function NewMovie() {
     <Container>
       <Header />
 
+      <ButtonText Icon={FiArrowLeft} title='Voltar'/>
+      
       <main>
-        <ButtonText Icon={FiArrowLeft} title='Voltar'/>
 
         <h1>Novo filme</h1>
 

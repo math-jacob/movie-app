@@ -4,8 +4,12 @@ export const Container = styled.div`
   height: 100vh;
   overflow: hidden;
 
+  > button {
+    margin: 4rem 0 0 12.4rem;
+  }
+
   > main {
-    padding: 4.8rem 12.4rem 0;
+    padding: 0 12.4rem 0;
 
     height: 84rem;
     overflow-y: auto;
