@@ -25,9 +25,9 @@ class UserController {
 
   async update(request, response) {
     const { name, email, password, old_password } = request.body
-    const { id } = request.params
+    const user_id = request.user.id
 
-    const [user] = await knex('users').where({ id })
+    const [user] = await knex('users').where({ id: user_id })
     console.log(user)
 
     if (!user) {
@@ -61,7 +61,7 @@ class UserController {
     const new_email = user.email
     const new_password = user.password
     await knex('users')
-      .where({ id })
+      .where({ id: user_id })
       .update({
         name: new_name,
         email: new_email,
