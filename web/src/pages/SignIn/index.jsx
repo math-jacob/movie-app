@@ -2,11 +2,15 @@ import { FiMail, FiLock } from "react-icons/fi";
 
 import { Input } from '../../components/Input'
 import { ButtonText } from '../../components/ButtonText'
-
-import { Container, Form, Background } from './styles'
 import { Button } from "../../components/Button";
 
+import { useNavigate } from 'react-router-dom'
+
+import { Container, Form, Background } from './styles'
+
 export function SignIn() {
+  const navigate = useNavigate()
+
   return (
     <Container>
       <Form>
@@ -27,7 +31,7 @@ export function SignIn() {
 
         <Button title='Entrar' type='button'/>
 
-        <ButtonText title='Criar conta'/>
+        <ButtonText title='Criar conta' onClick={() => navigate('/signup')}/>
       </Form>
 
       <Background />

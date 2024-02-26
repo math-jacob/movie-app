@@ -5,11 +5,15 @@ import { api } from '../../services/api'
 
 import { Input } from '../../components/Input'
 import { ButtonText } from '../../components/ButtonText'
-
-import { Container, Form, Background } from './styles'
 import { Button } from "../../components/Button";
 
+import { useNavigate } from 'react-router-dom'
+
+import { Container, Form, Background } from './styles'
+
 export function SignUp() {
+  const navigate = useNavigate()
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -60,7 +64,7 @@ export function SignUp() {
 
         <Button title='Cadastrar' type='button' onClick={handleSignUp}/>
 
-        <ButtonText Icon={FiArrowLeft} title='Voltar para o login'/>
+        <ButtonText Icon={FiArrowLeft} type='button' title='Voltar para o login' onClick={() => navigate(-1)}/>
       </Form>
 
       <Background />
