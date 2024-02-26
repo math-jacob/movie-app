@@ -21,11 +21,13 @@ export function SignIn() {
 
         <Input 
           Icon={FiMail}
+          type="email"
           placeholder='E-mail'
         />
 
-        <Input 
+        <Input
           Icon={FiLock}
+          type="password"
           placeholder='Senha'
         />
 
