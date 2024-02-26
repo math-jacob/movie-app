@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { FiUser, FiMail, FiLock, FiArrowLeft } from "react-icons/fi";
+
+import { api } from '../../services/api'
 
 import { Input } from '../../components/Input'
 import { ButtonText } from '../../components/ButtonText'
@@ -7,6 +10,28 @@ import { Container, Form, Background } from './styles'
 import { Button } from "../../components/Button";
 
 export function SignUp() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  function handleSignUp() {
+    if (!name || !email || !password) {
+      return alert('Preencha todos os campos')
+    }
+
+    api.post('/users', { name, email, password })
+    .then(() => {
+      alert('Usuário cadastrado com sucesso!')
+    })
+    .catch(error => {
+      if (error.response) {
+        alert(error.response.data.message)
+      } else {
+        alert('Não foi possível cadastrar')
+      }
+    })
+  }
+
   return (
     <Container>
       <Form>
@@ -18,19 +43,22 @@ export function SignUp() {
         <Input 
           Icon={FiUser}
           placeholder='Nome'
+          onChange={e => setName(e.target.value)}
         />
 
         <Input 
           Icon={FiMail}
           placeholder='E-mail'
+          onChange={e => setEmail(e.target.value)}
         />
 
         <Input 
           Icon={FiLock}
           placeholder='Senha'
+          onChange={e => setPassword(e.target.value)}
         />
 
-        <Button title='Cadastrar' type='button'/>
+        <Button title='Cadastrar' type='button' onClick={handleSignUp}/>
 
         <ButtonText Icon={FiArrowLeft} title='Voltar para o login'/>
       </Form>
