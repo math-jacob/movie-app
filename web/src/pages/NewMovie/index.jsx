@@ -9,7 +9,7 @@ import { Textarea } from '../../components/Textarea'
 import { InputTag } from '../../components/InputTag'
 import { Button } from '../../components/Button'
 
-import { Container } from './styles'
+import { Container, Form } from './styles'
 
 export function NewMovie() {
   const [title, setTitle] = useState('')
@@ -36,8 +36,7 @@ export function NewMovie() {
 
       <ButtonText Icon={FiArrowLeft} title='Voltar' onClick={() => navigate(-1)}/>
       
-      <main>
-
+      <Form>
         <h1>Novo filme</h1>
 
         <div className='col-2'>
@@ -80,7 +79,8 @@ export function NewMovie() {
           <Button title='Excluir filme'/>
           <Button title='Salvar alterações'/>
         </div>
-      </main>
+      </Form>
+      
     </Container>
   )
 }
