@@ -9,6 +9,8 @@ import { Textarea } from '../../components/Textarea'
 import { InputTag } from '../../components/InputTag'
 import { Button } from '../../components/Button'
 
+import { api } from '../../services/api'
+
 import { Container, Form } from './styles'
 
 export function NewMovie() {
@@ -30,13 +32,40 @@ export function NewMovie() {
     setTags(prevState => prevState.filter(tag => tag !== deleted))
   }
 
+  async function handleNewMovie(event) {
+    event.preventDefault()
+
+    if (newTag) {
+      return alert('Você deixou uma tag no campo para adicionar, mas não confirmou. Clique para adicionar ou deixe o campo vazio.')
+    }
+
+    try {
+      await api.post('/notes', {
+        title,
+        rating,
+        description,
+        tags
+      })
+
+      alert('Nota criada com sucesso!')
+      navigate('/')
+
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message)
+      } else {
+        alert('Não foi possível criar a nota')
+      }
+    }
+  }
+
   return (
     <Container>
       <Header />
 
       <ButtonText Icon={FiArrowLeft} title='Voltar' onClick={() => navigate(-1)}/>
       
-      <Form>
+      <Form onSubmit={(event) => handleNewMovie(event)}>
         <h1>Novo filme</h1>
 
         <div className='col-2'>
@@ -76,11 +105,11 @@ export function NewMovie() {
         </div>
 
         <div className='col-2'>
-          <Button title='Excluir filme'/>
-          <Button title='Salvar alterações'/>
+          <Button title='Excluir filme' type='button'/>
+          <Button title='Salvar alterações' type='submit'/>
         </div>
       </Form>
-      
+
     </Container>
   )
 }
