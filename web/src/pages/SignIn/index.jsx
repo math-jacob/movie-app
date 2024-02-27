@@ -19,13 +19,15 @@ export function SignIn() {
 
   const { signIn } = useAuth()
 
-  function handleSignIn() {
+  function handleSignIn(event) {
+    event.preventDefault()
+
     signIn({email, password})
   }
 
   return (
     <Container>
-      <Form>
+      <Form onSubmit={event => handleSignIn(event)}>
         <h1>RocketMovies</h1>
         <p>Aplicação para acompanhar tudo que assistir.</p>
 
@@ -45,9 +47,9 @@ export function SignIn() {
           onChange={e => setPassword(e.target.value)}
         />
 
-        <Button title='Entrar' type='button' onClick={handleSignIn}/>
+        <Button title='Entrar' type='submit'/>
 
-        <ButtonText title='Criar conta' onClick={() => navigate('/signup')}/>
+        <ButtonText title='Criar conta' type='button' onClick={() => navigate('/signup')}/>
       </Form>
 
       <Background />
