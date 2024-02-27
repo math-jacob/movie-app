@@ -23,7 +23,8 @@ export function AuthProvider({ children }) {
       
       const userToStore = {
         name: user.name,
-        email: user.email
+        email: user.email,
+        avatar: user.avatar
       }
 
       localStorage.setItem('@rocketmovies:user', JSON.stringify(userToStore))
@@ -48,13 +49,23 @@ export function AuthProvider({ children }) {
     setData({})
   }
 
-  async function updateProfile({ user }) {
+  async function updateProfile({ user, avatarFile }) {
     try {
+
+      if (avatarFile) {
+        const fileUploadForm = new FormData()
+        fileUploadForm.append('avatar', avatarFile)
+
+        const response = await api.patch('/users/avatar', fileUploadForm)
+        user.avatar = response.data.avatar
+      }
+
       await api.put('/users', user)
 
       const userToStore = {
         name: user.name,
-        email: user.email
+        email: user.email,
+        avatar: user.avatar
       }
 
       localStorage.setItem('@rocketmovies:user', JSON.stringify(userToStore))
