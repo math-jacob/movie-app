@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-
 import { Input } from '../Input'
-
+import { api } from '../../services/api'
 import { useAuth } from '../../contexts/auth'
 
 import { Container, Profile } from './styles'
@@ -9,7 +8,9 @@ import { Container, Profile } from './styles'
 export function Header() {
   const navigate = useNavigate()
 
-  const { signOut } = useAuth()
+  const { user, signOut } = useAuth()
+
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
   return (
     <Container>
@@ -26,7 +27,7 @@ export function Header() {
         </div>
         
         <img 
-          src="https://github.com/math-jacob.png"
+          src={avatarUrl}
           alt="foto do usuario"
           onClick={() => navigate('/profile')}
         />
