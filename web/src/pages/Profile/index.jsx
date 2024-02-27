@@ -1,4 +1,5 @@
 import { FiArrowLeft, FiCamera, FiUser, FiMail, FiLock } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
@@ -9,11 +10,16 @@ import { Container, Form, Avatar } from './styles'
 export function Profile() {
   const name = 'Matheus Jacob'
   const email = 'matheus@gmail.com'
+  const navigate = useNavigate()
 
   return (
     <Container>
       <header>
-        <ButtonText Icon={FiArrowLeft} title='Voltar'/>
+        <ButtonText 
+          Icon={FiArrowLeft} 
+          title='Voltar'
+          onClick={() => navigate(-1)}
+        />
       </header>
 
       <Form>
