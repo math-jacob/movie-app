@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
 
 import { Header } from '../../components/Header'
@@ -10,11 +11,14 @@ import { Button } from '../../components/Button'
 import { Container } from './styles'
 
 export function NewMovie() {
+
+  const navigate = useNavigate()
+
   return (
     <Container>
       <Header />
 
-      <ButtonText Icon={FiArrowLeft} title='Voltar'/>
+      <ButtonText Icon={FiArrowLeft} title='Voltar' onClick={() => navigate(-1)}/>
       
       <main>
 
