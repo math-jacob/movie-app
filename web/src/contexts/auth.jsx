@@ -20,12 +20,17 @@ export function AuthProvider({ children }) {
     try {
       const response = await api.post('/sessions', { email, password})
       const { user, token } = response.data
+      
+      const userToStore = {
+        name: user.name,
+        email: user.email
+      }
 
-      localStorage.setItem('@rocketmovies:user', JSON.stringify(user))
+      localStorage.setItem('@rocketmovies:user', JSON.stringify(userToStore))
       localStorage.setItem('@rocketmovies:token', token)
 
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      setData({ user, token })
+      setData({ user: userToStore, token })
 
     } catch (error) {
       if (error.response) {
@@ -47,8 +52,13 @@ export function AuthProvider({ children }) {
     try {
       await api.put('/users', user)
 
-      localStorage.setItem('@rocketmovies:user', JSON.stringify(user))
-      setData({ user, token: data.token })
+      const userToStore = {
+        name: user.name,
+        email: user.email
+      }
+
+      localStorage.setItem('@rocketmovies:user', JSON.stringify(userToStore))
+      setData({ user: userToStore, token: data.token })
 
       alert('Perfil atualizado!')
 
