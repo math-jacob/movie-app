@@ -36,8 +36,19 @@ export function AuthProvider({ children }) {
     }
   }
 
+  async function signOut() {
+    localStorage.removeItem('@rocketmovies:user')
+    localStorage.removeItem('@rocketmovies:token')
+
+    setData({})
+  }
+
   return (
-    <AuthContext.Provider value={{ signIn, user: data.user }}>
+    <AuthContext.Provider value={{ 
+      signIn, 
+      signOut,
+      user: data.user
+    }}>
       {children}
     </AuthContext.Provider>
   )
