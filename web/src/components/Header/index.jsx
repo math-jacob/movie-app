@@ -5,7 +5,7 @@ import { useAuth } from '../../contexts/auth'
 
 import { Container, Profile } from './styles'
 
-export function Header() {
+export function Header({ setSearch }) {
   const navigate = useNavigate()
 
   const { user, signOut } = useAuth()
@@ -18,6 +18,7 @@ export function Header() {
 
       <Input 
         placeholder='Pesquisar pelo título'
+        onChange={(e) => setSearch(e.target.value)}
       />
 
       <Profile>
