@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { Input } from '../Input'
 
 import { useAuth } from '../../contexts/auth'
@@ -5,6 +7,7 @@ import { useAuth } from '../../contexts/auth'
 import { Container, Profile } from './styles'
 
 export function Header() {
+  const navigate = useNavigate()
 
   const { signOut } = useAuth()
 
@@ -21,7 +24,12 @@ export function Header() {
           <strong>Matheus Jacob</strong>
           <button onClick={signOut}>sair</button>
         </div>
-        <img src="https://github.com/math-jacob.png" alt="foto do usuario" />
+        
+        <img 
+          src="https://github.com/math-jacob.png"
+          alt="foto do usuario"
+          onClick={() => navigate('/profile')}
+        />
       </Profile>
     </Container>
   )
