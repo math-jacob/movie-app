@@ -65,7 +65,11 @@ export function AuthProvider({ children }) {
       const userToStore = {
         name: user.name,
         email: user.email,
-        avatar: user.avatar
+        avatar: user.avatar,
+      }
+
+      if (!user.avatar) {
+        userToStore.avatar = data.user.avatar
       }
 
       localStorage.setItem('@rocketmovies:user', JSON.stringify(userToStore))
