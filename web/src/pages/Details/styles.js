@@ -5,8 +5,12 @@ export const Container = styled.div`
 
   overflow: hidden;
 
-  > button {
-    margin: 4rem 0 0 12.4rem;
+  .buttons-container {
+    margin: 4rem 12.4rem 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   > main {
@@ -50,10 +54,11 @@ export const Container = styled.div`
     }
 
     section {
-      margin-top: 4rem;
+      margin-block: 4rem;
 
       p {
         margin-top: 1.6rem;
+        text-align: justify;
       }
     }
   }
