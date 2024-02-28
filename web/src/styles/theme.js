@@ -6,8 +6,8 @@ export default {
     TAG_BACKGROUND: '#312E38',
     
     PINK_100: '#FF859B',
+    PINK_700: '#30272B',
     PINK_800: 'rgba(255, 133, 155, 0.05)',
-    PINK_950: '#282124',
 
     GRAY_100: '#CAC4CF',
     GRAY_200: '#948F99',

@@ -81,7 +81,15 @@ export function Home() {
         </TagsWrapper>
 
         <Content>
-          { movies?.map((movie) => <Card key={movie.id} data={movie}/>) }
+          { 
+            movies?.map((movie) => (
+              <Card
+                key={movie.id}
+                data={movie}
+                onClick={() => navigate('/details', { state: { data: movie } })}
+              />
+            ))
+          }
         </Content>
       </main>
     </Container>

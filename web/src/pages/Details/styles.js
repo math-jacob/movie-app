@@ -15,15 +15,28 @@ export const Container = styled.div`
     height: 74rem;
     overflow-y: auto;
 
-    .col-2 {
+    .header, .movie-info {
       margin-top: 2.4rem;
       display: flex;
       align-items: center;
-      gap: 1.8rem;
     }
 
-    .col-2:nth-child(3) {
-      gap: .8rem;
+    .header h1 {
+      margin-right: 1.6rem;
+    }
+
+    .movie-info {
+      img {
+        margin-right: .4rem;
+      }
+
+      span {
+        margin-right: 1.6rem;
+      }
+
+      svg {
+        margin-right: .4rem;
+      }
     }
 
     svg {
@@ -54,4 +67,12 @@ export const Stars = styled.div`
   > .filled {
     fill: ${({ theme }) => theme.COLORS.PINK_100};
   }
+`
+
+export const TagsWrapper = styled.div`
+  margin-top: 4rem;
+
+  display: flex;
+  align-items: center;
+  gap: .8rem;
 `

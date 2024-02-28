@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { Input } from '../Input'
 import { api } from '../../services/api'
 import { useAuth } from '../../contexts/auth'
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
 import { Container, Profile } from './styles'
 
