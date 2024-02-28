@@ -41,3 +41,23 @@ export const Content = styled.div`
   overflow-y: auto;
   padding-right: .8rem;
 `
+
+export const TagsWrapper = styled.div`
+  margin-bottom: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  > button {
+    padding: 1.6rem;
+
+    border: 0;
+    border-radius: 1.6rem;
+    background-color: ${({ theme }) => theme.COLORS.WHITE};
+
+    font-size: 1.6rem;
+    color: ${({ theme }) => theme.COLORS.BLACK_200};
+  }
+`
