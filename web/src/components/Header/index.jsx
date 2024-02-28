@@ -13,6 +13,11 @@ export function Header({ setSearch }) {
 
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
+  function handleSignOut() {
+    navigate('/')
+    signOut()
+  }
+
   return (
     <Container>
       <h1>RocketMovies</h1>
@@ -25,7 +30,7 @@ export function Header({ setSearch }) {
       <Profile>
         <div>
           <strong>{user.name}</strong>
-          <button onClick={signOut}>sair</button>
+          <button onClick={handleSignOut}>sair</button>
         </div>
         
         <img 
