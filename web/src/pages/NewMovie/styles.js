@@ -11,8 +11,8 @@ export const Container = styled.div`
 
 export const Form = styled.form`
   padding: 0 12.4rem 0;
-
-  height: 84rem;
+  
+  max-height: 80%;
   overflow-y: auto;
 
   h1 {
@@ -48,6 +48,8 @@ export const Form = styled.form`
     display: flex;
     align-items: center;
     gap: 2.4rem;
+
+    flex-wrap: wrap;
   }
 
   .col-2 button:first-child {
