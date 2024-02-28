@@ -37,7 +37,7 @@ export const Content = styled.div`
   gap: 2.4rem;
   
   scrollbar-gutter: stable;
-  max-height: 66rem;
+  max-height: 60%;
   overflow-y: auto;
   padding-right: .8rem;
 `
@@ -53,12 +53,12 @@ export const TagsWrapper = styled.div`
 `
 
 export const SelectTagCard = styled.button`
-  padding: 1.4rem;
+  padding: 1.2rem 1.6rem;
 
   border: 0;
   border-radius: 1.6rem;
   background-color: ${({ theme, $isActive }) => $isActive ? theme.COLORS.PINK_100 : theme.COLORS.WHITE};
 
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: ${({ theme }) => theme.COLORS.BLACK_200};
 `
