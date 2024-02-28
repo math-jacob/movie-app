@@ -8,13 +8,13 @@ import { Card } from '../../components/Card'
 
 import { api } from '../../services/api'
 
-import { Container, Content, TagsWrapper } from './styles'
+import { Container, Content, TagsWrapper, SelectTagCard } from './styles'
 
 export function Home() {
   const [movies, setMovies] = useState([])
   const [search, setSearch] = useState('')
   const [tags, setTags] = useState([])
-  const [filteredTags, setFilteredTags] = useState([])
+  const [tagsSelected, setTagsSelected] = useState([])
 
   const navigate = useNavigate()
 
@@ -29,12 +29,24 @@ export function Home() {
 
   useEffect(() => {
     async function fetchMovies() {
-      const response = await api.get(`/notes?title${search}`)
+      const response = await api.get(`/notes?title=${search}&tags=${tagsSelected.toString()}`)
       setMovies(response.data)
     }
 
     fetchMovies()
-  }, [])
+  }, [search, tagsSelected])
+
+  function handleTagSelected(selected) {
+    if (selected === 'all') {
+      setTagsSelected([])
+      return
+    }
+
+    if (tagsSelected.includes(selected)) 
+      setTagsSelected(tagsSelected.filter(tag => tag !== selected))
+    else 
+      setTagsSelected(prevState => [...prevState, selected])
+  }
 
   return (
     <Container>
@@ -47,13 +59,23 @@ export function Home() {
         </div>
 
         <TagsWrapper>
+          <SelectTagCard 
+            type='button'
+            onClick={() => handleTagSelected('all')}
+            $isActive={tagsSelected.length === 0}
+          >
+            Todos
+          </SelectTagCard>
           {
             tags?.map((tag, index) => (
-              <button 
+              <SelectTagCard 
                 key={index}
+                type='button'
+                onClick={() => handleTagSelected(tag.name)}
+                $isActive={tagsSelected.includes(tag.name)}
               >
                 { tag.name }
-              </button>
+              </SelectTagCard>
             ))
           }
         </TagsWrapper>

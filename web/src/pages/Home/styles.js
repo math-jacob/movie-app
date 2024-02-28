@@ -50,15 +50,15 @@ export const TagsWrapper = styled.div`
   gap: 1.6rem;
 
   flex-wrap: wrap;
+`
 
-  > button {
-    padding: 1.4rem;
+export const SelectTagCard = styled.button`
+  padding: 1.4rem;
 
-    border: 0;
-    border-radius: 1.6rem;
-    background-color: ${({ theme }) => theme.COLORS.WHITE};
+  border: 0;
+  border-radius: 1.6rem;
+  background-color: ${({ theme, $isActive }) => $isActive ? theme.COLORS.PINK_100 : theme.COLORS.WHITE};
 
-    font-size: 1.6rem;
-    color: ${({ theme }) => theme.COLORS.BLACK_200};
-  }
+  font-size: 1.6rem;
+  color: ${({ theme }) => theme.COLORS.BLACK_200};
 `
