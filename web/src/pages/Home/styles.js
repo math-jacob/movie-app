@@ -50,8 +50,10 @@ export const TagsWrapper = styled.div`
   justify-content: center;
   gap: 1.6rem;
 
+  flex-wrap: wrap;
+
   > button {
-    padding: 1.6rem;
+    padding: 1.4rem;
 
     border: 0;
     border-radius: 1.6rem;
