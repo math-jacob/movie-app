@@ -105,7 +105,7 @@ export function NewMovie() {
         </div>
 
         <div className='col-2'>
-          <Button title='Excluir filme' type='button'/>
+          <Button title='Cancelar' type='button' onClick={() => navigate(-1)}/>
           <Button title='Salvar alterações' type='submit'/>
         </div>
       </Form>
