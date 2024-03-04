@@ -5,7 +5,8 @@ const AuthContext = createContext({})
 
 export function AuthProvider({ children }) {
   const [data, setData] = useState({})
-
+  const [loading, setLoading] = useState(true)
+  
   useEffect(() => {
     const user = localStorage.getItem('@rocketmovies:user')
     const token = localStorage.getItem('@rocketmovies:token')
@@ -14,6 +15,8 @@ export function AuthProvider({ children }) {
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`
       setData({ user: JSON.parse(user), token })
     }
+
+    setLoading(false)
   }, [])
   
   async function signIn({ email, password }) {
@@ -40,6 +43,8 @@ export function AuthProvider({ children }) {
         alert('Não foi possível entrar')
       }
     }
+
+    setLoading(false)
   }
 
   async function signOut() {
@@ -90,6 +95,7 @@ export function AuthProvider({ children }) {
     <AuthContext.Provider value={{ 
       signIn, 
       signOut,
+      loading,
       updateProfile,
       user: data.user
     }}>
